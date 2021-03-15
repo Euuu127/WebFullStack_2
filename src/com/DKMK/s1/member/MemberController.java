@@ -27,11 +27,25 @@ public class MemberController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		System.out.println("id: "+id);
+		System.out.println("pw: "+pw);
+		
 		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId(id);
+		memberDTO.setPw(pw);
 		try {
 			memberDAO.login(memberDTO);
+			
+			if(memberDTO !=null) {
+				System.out.println("성공이라굿~");
+			}else {
+				System.out.println("실패임");
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

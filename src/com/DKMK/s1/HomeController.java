@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 /**
  * Servlet implementation class HomeController
  */
@@ -34,10 +36,17 @@ public class HomeController extends HttpServlet {
 		String encoding = request.getCharacterEncoding();
 		String method = request.getMethod();
 		String pathInfo= request.getPathInfo();
+		String uri = request.getRequestURI();
+		StringBuffer url = request.getRequestURL();
+		String servletPath = request.getServletPath();
+		
 		System.out.println("Context path: "+contextPath);
 		System.out.println("Encoding: "+encoding);
 		System.out.println("Method: "+method);
 		System.out.println("Path Info: "+pathInfo);
+		System.out.println("URI: "+uri);
+		System.out.println("URL: "+url.toString());
+		System.out.println("Servlet Path: "+servletPath);
 		
 		
 		
