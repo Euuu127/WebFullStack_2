@@ -7,15 +7,17 @@ import com.DKMK.s1.util.ActionFoward;
 public class MemberService {
 	
 	private MemberDAO memberDAO;
-
+	
+	
+	
 	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
-	
+
 	//memberLogin
+	
+
 	public ActionFoward memberJoin(HttpServletRequest request)throws Exception{
-		//DAO 메서드 호출
-		System.out.println("memberService");
 		ActionFoward actionFoward = new ActionFoward();
 		String method = request.getMethod();
 		actionFoward.setPath("../WEB-INF/member/memberJoin.jsp");
@@ -28,12 +30,10 @@ public class MemberService {
 			memberDTO.setPhone(request.getParameter("phone"));
 			int result = memberDAO.memberJoin(memberDTO);
 			actionFoward.setPath("../index.jsp");
-			}
+		}
+		
 		
 		return actionFoward;
-		
-		
-	
 	}
 
 }
