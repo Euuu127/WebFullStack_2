@@ -46,7 +46,7 @@
 	<div class="container">
 		<div class="row">
 			<h1>member join jsp page</h1>
-			<form class="form-horizontal" action="/action_page.php">
+			<form class="form-horizontal" action="./memberJoin.do">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="id">ID:</label>
 					<div class="col-sm-10">
@@ -80,10 +80,10 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="mobile">Mobile:</label>
+					<label class="control-label col-sm-2" for="phone">Phone:</label>
 					<div class="col-sm-10">
-						<input type="mobile" class="form-control" id="mobile"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter mobile" name="mobile">
+						<input type="phone" class="form-control" id="phone"
+							placeholder="(ᐡ-ܫ-ᐡ) Enter phone" name="phone">
 					</div>
 				</div>
 				
