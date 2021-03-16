@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>member login jsp page</h1>
+	<h1>Member Login Page</h1>
 
 </body>
 </html>

@@ -9,11 +9,13 @@ public class MemberDAOTest {
 		MemberDAO memberDAO = new MemberDAO();
 		
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("mark");
-		memberDTO.setPw("pw1");
-		
+		memberDTO.setId("jisung");
+		memberDTO.setPw("park");
+		memberDTO.setName("지성");
+		memberDTO.setEmail("dream@naver.com");
+		memberDTO.setPhone("01025252525");
 		try {
-			memberDTO = memberDAO.login(memberDTO);
+			int result = memberDAO.memberJoin(memberDTO);
 			System.out.println(memberDTO != null);
 		} catch (Exception e) {
 			// TODO: handle exception

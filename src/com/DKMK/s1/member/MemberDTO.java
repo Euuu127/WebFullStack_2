@@ -30,7 +30,7 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhont() {
+	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {

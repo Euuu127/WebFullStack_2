@@ -45,58 +45,60 @@
 
 	<div class="container">
 		<div class="row">
-			<h1>member join jsp page</h1>
-			<form class="form-horizontal" action="./memberJoin.do">
+			<h1>Member Join Page</h1>
+			<form class="form-horizontal" action="./memberJoin.do" method="post">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="id">ID:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="id"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter ID" name="id">
+							placeholder="Enter ID" name="id">
 					</div>
 				</div>
-				
+
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pw">Password:</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="pw"
+							placeholder="Enter password" name="pw">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">Name:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="name"
+							placeholder="Enter Name" name="name">
+					</div>
+				</div>
+
+
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="email">Email:</label>
 					<div class="col-sm-10">
 						<input type="email" class="form-control" id="email"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter email" name="email">
+							placeholder="Enter email" name="email">
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="pwd">Password:</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="pwd"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter password" name="pwd">
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Name:</label>
-					<div class="col-sm-10">
-						<input type="name" class="form-control" id="name"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter name" name="name">
-					</div>
-				</div>
-				
-				<div class="form-group">
+							<div class="form-group">
 					<label class="control-label col-sm-2" for="phone">Phone:</label>
 					<div class="col-sm-10">
-						<input type="phone" class="form-control" id="phone"
-							placeholder="(ᐡ-ܫ-ᐡ) Enter phone" name="phone">
+						<input type="text" class="form-control" id="phone"
+							placeholder="Enter Phone" name="phone">
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">Submit (ᐡ•ܫ•ᐡ)</button>
+						<button type="submit" class="btn btn-default">Submit</button>
 					</div>
 				</div>
 			</form>
+
 		</div>
 
 	</div>
-
-
 </body>
 </html>

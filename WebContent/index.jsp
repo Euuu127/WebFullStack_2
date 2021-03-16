@@ -15,7 +15,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -39,29 +38,11 @@
   </div>
 </nav>
   
+<div class="container">
+  <h3>Right Aligned Navbar</h3>
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+</div>
 
-	<!-- <h1>index page</h1>
-	<a href="./member/memberLogin.do">Member Login</a>
 	
-	<form action="./member/memberLogin.do" method="get">
-	<form action="./sub/loginTest.jsp" method="get">
-		<input type="text" name="id">
-		<input type="password" name="pw">
-		<button>login</button>
-	</form>
-	
-	<form action="./member/memberJoin.do" method="get">
-	<form action="./sub/loginTest.jsp" method="get">
-		<input type="text" name="id">
-		<input type="password" name="pw">
-		<input type="text" name="name">
-		<input type="text" name="phone">
-		<input type="text" name="email">
-		<button>join</button>
-	</form>
-
-	<h3><a href="./sub/test.jsp?name=mark&age=20">Go Test</a></h3> 
-	?기준 우측 parameter 좌측 url
-	 -->
 </body>
 </html>
