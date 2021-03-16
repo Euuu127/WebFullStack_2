@@ -52,8 +52,8 @@ public class MemberController extends HttpServlet {
 		//2. 해당 인덱스부터 잘라오기
 		result = uri.substring(index+1);
 		System.out.println(result);
-		String pathInfo="";
-		ActionFoward actionFoward=null;
+		String pathInfo =" ";
+		ActionFoward actionFoward= null;
 		if(result.equals("memberLogin.do")) {
 			System.out.println("로그인 처리");
 			pathInfo="../WEB-INF/member/memberLogin.jsp";

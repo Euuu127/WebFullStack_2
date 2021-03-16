@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 /**
  * Servlet implementation class HomeController
  */
@@ -32,21 +30,22 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String contextPath = request.getContextPath();
-		String encoding = request.getCharacterEncoding();
-		String method = request.getMethod();
-		String pathInfo= request.getPathInfo();
-		String uri = request.getRequestURI();
-		StringBuffer url = request.getRequestURL();
-		String servletPath = request.getServletPath();
-		
-		System.out.println("Context path: "+contextPath);
-		System.out.println("Encoding: "+encoding);
-		System.out.println("Method: "+method);
-		System.out.println("Path Info: "+pathInfo);
-		System.out.println("URI: "+uri);
-		System.out.println("URL: "+url.toString());
-		System.out.println("Servlet Path: "+servletPath);
+		  String contextPath = request.getContextPath();
+		  String encoding = request.getCharacterEncoding();
+		  String method = request.getMethod();
+		  String pathInfo = request.getPathInfo();
+		  String uri = request.getRequestURI();
+		  StringBuffer url = request.getRequestURL();
+		  String servletPath = request.getServletPath();
+		  String name = request.getParameter("파라미터이름");
+		  
+		  System.out.println("ContextPath : "+contextPath);
+		  System.out.println("Encoding : "+encoding);
+		  System.out.println("Method : "+method);
+		  System.out.println("PathInfo : "+pathInfo);
+		  System.out.println("URI : "+uri);
+		  System.out.println("URL : "+url.toString());
+		  System.out.println("ServletPath : "+servletPath);
 		
 		
 		
