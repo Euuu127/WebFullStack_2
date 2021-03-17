@@ -56,6 +56,8 @@ public class BankBookController extends HttpServlet {
 				actionFoward = bankBookService.getList(request);
 			}else if(uri.equals("bankbookSelect.do")) {
 				actionFoward = bankBookService.getSelect(request);
+			}else if(uri.equals("bankbookWrite.do")) {
+				actionFoward = bankBookService.setWrite(request);
 			}
 		}catch (Exception e) {
 			System.out.println("errorrrrrr");

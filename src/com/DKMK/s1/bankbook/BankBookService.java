@@ -42,15 +42,26 @@ public class BankBookService {
 
 	}
 	
-	public ActionFoward getWrite(HttpServletRequest request)throws Exception{
-		
+	public ActionFoward setWrite(HttpServletRequest request)throws Exception{
 		ActionFoward actionFoward = new ActionFoward();
-		String method = request.getMethod();
+		System.out.println("setWrite"); //메서드 실행되는지 알아보려구
+		//GET
 		actionFoward.setPath("../WEB-INF/bankbook/bankbookWrite.jsp");
-		actionFoward.setCheck(true);
+		actionFoward.setCheck(true); //포워드 하려구
+		
+		if(request.getMethod().toUpperCase().equals("POST")) {
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookName(request.getParameter("bookName"));
+			bankBookDTO.setBookRate(Double.parseDouble(request.getParameter("bookRate")));
+			bankBookDTO.setBookSale(request.getParameter("bookSale"));
+			//DAO 작업
+			int result = bankBookDAO.setWrite(bankBookDTO);
+			actionFoward.setPath("./bankbookList.do");
+			actionFoward.setCheck(false);
+		}
 		
 		
-		return null;
+		return actionFoward;
 		
 	}
 
