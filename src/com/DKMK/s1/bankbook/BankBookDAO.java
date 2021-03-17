@@ -8,11 +8,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankBookDAO {
+	
+	public BankBookDTO getSelect(long bookNumber)throws Exception{
+		//1. 로그인 정보 
+		String user="user01";
+		String password="user01";
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		String driver = "oracle.jdbc.driver.OracleDriver";
+
+		//2. 클래스 로딩
+		Class.forName(driver);
+
+		//3. 로그인 Connection
+		Connection con = DriverManager.getConnection(url, user, password);
+		
+		String sql =" select * from bankbook where booknumber = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setLong(1, bookNumber);
+		
+		ResultSet rs = st.executeQuery();
+		
+		BankBookDTO bankBookDTO= null;
+		
+		if(rs.next()) {
+			bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookNumber(rs.getLong("bookNumber"));
+			bankBookDTO.setBookName(rs.getString("bookName"));
+			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO.setBookSale(rs.getString("bookSale"));
+			
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return bankBookDTO;
+
+	}	
 
 	//getList
 	//bankbook table의 모든 데이터 조회 후 리턴
 
-	public BankBookDTO getList(BankBookDTO bankBookDTO)throws Exception {
+	public List<BankBookDTO> getList()throws Exception {
+		ArrayList<BankBookDTO> ar = new ArrayList<>();
 
 		//1. 로그인 정보 
 		String user="mark02";
@@ -31,33 +72,27 @@ public class BankBookDAO {
 
 		//5. 미리 전송
 		PreparedStatement st = con.prepareStatement(sql);
-
-		//6. ? 세팅
-		st.setInt(1, bankBookDTO.getBooknumber());
-		st.setString(2, bankBookDTO.getBookname());
-		st.setDouble(3, bankBookDTO.getBookrate());
-		st.setString(4, bankBookDTO.getBooksale());
-
+		
+	
 
 		//7. 최종 전송 후 처리
 		ResultSet rs = st.executeQuery();
-		BankBookDTO result = null; //이게 왜 .. 필요함? ㅅㅂ
-		List<BankBookDTO> ar= new ArrayList<BankBookDTO>();
-		while(rs.next()) {
-			result = new BankBookDTO();
-			result.setBooknumber(rs.getInt("booknumber"));
-			result.setBookname(rs.getString("bookname"));
-			result.setBookrate(rs.getDouble("bookrate"));
-			result.setBooksale(rs.getString("booksale"));
-		}
 
+		while(rs.next()) {
+			BankBookDTO bankbookDTO = new BankBookDTO();
+			bankbookDTO.setBookNumber(rs.getLong("bookNumber"));
+			bankbookDTO.setBookName(rs.getString("bookName"));
+			bankbookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankbookDTO.setBookSale(rs.getString("bookSale"));
+			ar.add(bankbookDTO);
+		}
+	
 		//8. 해제
 		rs.close();
 		st.close();
 		con.close();
 
-		return result;
-
+		return ar;
 	}
 
 }
