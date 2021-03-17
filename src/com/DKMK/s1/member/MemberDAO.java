@@ -33,8 +33,8 @@ public class MemberDAO {
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPw());
 		st.setString(3, memberDTO.getName());
-		st.setString(4, memberDTO.getEmail());
-		st.setString(5, memberDTO.getPhone());
+		st.setString(4, memberDTO.getPhone());
+		st.setString(5, memberDTO.getEmail());
 		
 		//7. 최종 전송 후 처리
 		int result = st.executeUpdate();

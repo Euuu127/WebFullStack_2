@@ -17,30 +17,30 @@ import com.DKMK.s1.util.ActionFoward;
 @WebServlet("/MemberController")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private MemberService memberService;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	memberService = new MemberService();
-    	MemberDAO memberDAO = new MemberDAO();
-    	memberService.setMemberDAO(memberDAO);
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public MemberController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() throws ServletException {
+		memberService = new MemberService();
+		MemberDAO memberDAO = new MemberDAO();
+		memberService.setMemberDAO(memberDAO);
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Member Controller!!!!");
-		
+
 		String path = request.getServletPath();
 		String uri	= request.getRequestURI();
 		System.out.println(path);
@@ -53,29 +53,41 @@ public class MemberController extends HttpServlet {
 		result = uri.substring(index+1);
 		System.out.println(result);
 		String pathInfo =" ";
+		
 		ActionFoward actionFoward= null;
+		
 		if(result.equals("memberLogin.do")) {
 			System.out.println("로그인 처리");
+			try {
+				actionFoward = memberService.memberLogin(request);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			pathInfo="../WEB-INF/member/memberLogin.jsp";
+	
 		}else if(result.equals("memberJoin.do")) {
 
 			try {
 				actionFoward = memberService.memberJoin(request);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
 		}else {
 			System.out.println("그 외 다른 처리");
 		}
-		
+
 		//foward
-		RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
-		view.forward(request, response);
-		
+		if(actionFoward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+			view.forward(request, response);
+		} else {
+			//redirect
+			response.sendRedirect(actionFoward.getPath());	
+		}
+
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
