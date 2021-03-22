@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.DKMK.s1.member.MemberDTO;
-
 public class BankBookDAO {
 	
 	
@@ -50,8 +48,8 @@ public class BankBookDAO {
 	
 	public BankBookDTO getSelect(long bookNumber)throws Exception{
 		//1. 로그인 정보 
-		String user="user01";
-		String password="user01";
+		String user="mark02";
+		String password="mark127";
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 

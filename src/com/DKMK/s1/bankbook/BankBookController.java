@@ -17,6 +17,7 @@ import com.DKMK.s1.util.ActionFoward;
 @WebServlet("/BankBookController")
 public class BankBookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	private BankBookService bankBookService;
        
     /**
@@ -29,16 +30,20 @@ public class BankBookController extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
-    	// Controller 객체 생성 후 자동 호출(tomcat이 호출해주는)되는 초기화 메서드
+    	//Controller 객체 생성 후 자동 호출 되는 초기화 메서드
     	bankBookService = new BankBookService();
     	BankBookDAO bankBookDAO = new BankBookDAO();
     	bankBookService.setBankBookDAO(bankBookDAO);
-    } 
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//한글 Encoding 처리 모든 Controller에 다 작성
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		//  /WebFullStack_2/bankbook/bankbookList.do
 		String uri = request.getRequestURI();
 		
